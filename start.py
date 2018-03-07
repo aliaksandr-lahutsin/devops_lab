@@ -10,6 +10,9 @@ def start_menu():
     parser.add_argument("--user", help="that optional takes your github login", required=True);
     parser.add_argument("--repo",nargs="?", help="that optional argument has:\n \"rep_name\" and \"id_rep\"")
     args = parser.parse_args()
+    # use args
+    # !- token = args.pass -!
+    # !- user = args.user -!
     # path to json setting about repo
     data = json.load(open('setting.json'))
     print ("""\nGet INFO by rest_api from GIT [link: """ + str(data['repo_link']) + "]" + "\n If change repo, please look setting.json in root directory")
@@ -60,6 +63,7 @@ def get_comment_count(json_dict):
 def get_repo_weeks(json_dict):
     print('repo weeks: ' + str(json_dict[0].get('week')))
 
+# use args in function / data['user_name'] equal user, data['token'] = equal token
 def get_info(link_string, wget):
     data = json.load(open('setting.json'))
     if (link_string == 'commits'):
