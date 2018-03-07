@@ -2,19 +2,19 @@ import psutil
 
 class CpuAnalazer:
     #
-    def _cpuIntervalTimeAnalyze(self):
+    def cpuIntervalTimeAnalyze(self):
         for x in range(1):
             return psutil.cpu_percent(interval = 5)
     #
-    def _cpuIntervalTimePerCpuAnalyze(self):
+    def cpuIntervalTimePerCpuAnalyze(self):
         for x in range(1):
             return psutil.cpu_times_percent(interval = 5, percpu = False)
     #
-    def _cpuCount(self):
+    def cpuCount(self):
         return psutil.cpu_count(self)
     #
-    def _cpuCountLogical(self):
+    def cpuCountLogical(self):
         return psutil.cpu_count(logical = False)
     #
-    def _cpuStat(self):
+    def cpuStat(self):
         return psutil.cpu_stats()
