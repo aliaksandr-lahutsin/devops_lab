@@ -14,7 +14,7 @@ class MonitorJson:
         ios = IOAnalazer()
         ins = NetAnalazer()
         data = {
-            'count_cpu' : str(ifs._cpuCount()),
+            'count_cpu' : str(ifs.cpuCount()),
             'count_logical_cpu' : str(ifs.cpuCountLogical()),
             'virual_memory_usage' : str(ims.virualMemoryUsage()),
             'swap_memory_usage' : str(ims.swapMemoryUsage()),
