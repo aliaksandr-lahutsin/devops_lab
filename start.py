@@ -13,6 +13,7 @@ def start_menu():
     # use args
     # !- token = args.pass -!
     # !- user = args.user -!
+    # !- repo = args.repo -!
     # path to json setting about repo
     data = json.load(open('setting.json'))
     print ("""\nGet INFO by rest_api from GIT [link: """ + str(data['repo_link']) + "]" + "\n If change repo, please look setting.json in root directory")
@@ -63,7 +64,11 @@ def get_comment_count(json_dict):
 def get_repo_weeks(json_dict):
     print('repo weeks: ' + str(json_dict[0].get('week')))
 
-# use args in function / data['user_name'] equal user, data['token'] = equal token
+# use args in function / 
+# data['user_name'] equal user, 
+# data['token'] = equal token
+# data['repo_link_n] = equal repo
+#
 def get_info(link_string, wget):
     data = json.load(open('setting.json'))
     if (link_string == 'commits'):
@@ -94,4 +99,3 @@ def choose_wget(json_dict, wget):
     start_menu()
 
 start_menu()
-
