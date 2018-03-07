@@ -4,6 +4,12 @@ import sys
 
 def start_menu():
     ans=True
+    # for example arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--pass", help="that optional takes your github account", required=True);
+    parser.add_argument("--user", help="that optional takes your github login", required=True);
+    parser.add_argument("--repo",nargs="?", help="that optional argument has:\n \"rep_name\" and \"id_rep\"")
+    args = parser.parse_args()
     # path to json setting about repo
     data = json.load(open('setting.json'))
     print ("""\nGet INFO by rest_api from GIT [link: """ + str(data['repo_link']) + "]" + "\n If change repo, please look setting.json in root directory")
