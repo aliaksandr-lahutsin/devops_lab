@@ -15,11 +15,11 @@ class MonitorJson:
         ins = NetAnalazer()
         data = {
             'count_cpu' : str(ifs._cpuCount()),
-            'count_logical_cpu' : str(ifs._cpuCountLogical()),
-            'virual_memory_usage' : str(ims._virualMemoryUsage()),
-            'swap_memory_usage' : str(ims._swapMemoryUsage()),
-            'disk_io_counters' : str(ios._diskIOCounters()),
-            'network_if_stats' : str(ins._netIfStats())
+            'count_logical_cpu' : str(ifs.cpuCountLogical()),
+            'virual_memory_usage' : str(ims.virualMemoryUsage()),
+            'swap_memory_usage' : str(ims.swapMemoryUsage()),
+            'disk_io_counters' : str(ios.diskIOCounters()),
+            'network_if_stats' : str(ins.netIfStats())
         }
         with open('data.json', 'w') as f:
             json.dump(data, f)
