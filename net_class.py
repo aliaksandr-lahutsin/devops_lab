@@ -2,11 +2,11 @@ import psutil
 
 class NetAnalazer:
     #    
-    def _netConnectors(self):
+    def netConnectors(self):
         return psutil.net_connections()
     #
-    def _netIfAddres(self):
+    def netIfAddres(self):
         return psutil.net_if_addrs()  
     #
-    def _netIfStats(self):
+    def netIfStats(self):
         return psutil.net_if_stats() 
