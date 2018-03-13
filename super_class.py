@@ -8,20 +8,37 @@ from net_class import *
 
 
 class MonitorJson:
-    #
     def outResultSetting(self):
         ifs = CpuAnalazer()
         ims = RamAnalazer()
         ios = IOAnalazer()
         ins = NetAnalazer()
-        data = {
-            'count_cpu': str(ifs.cpuCount()),
-            'count_logical_cpu': str(ifs.cpuCountLogical()),
-            'virual_memory_usage': str(ims.virualMemoryUsage()),
-            'swap_memory_usage': str(ims.swapMemoryUsage()),
-            'disk_io_counters': str(ios.diskIOCounters()),
-            'network_if_stats': str(ins.netIfStats())
-        }
-        with open('data.json', 'w') as f:
-            json.dump(data, f)
+        data = json.load(open('config.json'))
+        if(data["format"] == 'txt'):
+            text_file = open("data.txt", "w")
+            text_file.write(
+                'count_cpu: ' + str(ifs.cpuCount())
+                + '\n'
+                'count_logical_cpu: ' + str(ifs.cpuCountLogical())
+                + '\n'
+                'virual_memory_usage: ' + str(ims.virualMemoryUsage())
+                + '\n'
+                'swap_memory_usage: ' + str(ims.swapMemoryUsage())
+                + '\n'
+                'disk_io_counters: ' + str(ios.diskIOCounters())
+                + '\n'
+                'network_if_stats: ' + str(ins.netIfStats())
+                )
+            text_file.close()
+        else:
+            data = {
+                'count_cpu': str(ifs.cpuCount()),
+                'count_logical_cpu': str(ifs.cpuCountLogical()),
+                'virual_memory_usage': str(ims.virualMemoryUsage()),
+                'swap_memory_usage': str(ims.swapMemoryUsage()),
+                'disk_io_counters': str(ios.diskIOCounters()),
+                'network_if_stats': str(ins.netIfStats())
+            }
+            with open('data.json', 'w') as f:
+                json.dump(data, f)
         return 0
