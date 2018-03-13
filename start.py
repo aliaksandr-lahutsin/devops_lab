@@ -4,7 +4,7 @@ import sys
 
 
 def start_menu():
-    ans = Truу
+    ans = True
     data = json.load(open('setting.json'))
     print (
         """\nGet INFO by rest_api from GIT [link: """ 
