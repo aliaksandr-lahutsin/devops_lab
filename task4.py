@@ -14,7 +14,7 @@ while (count < s):
 for age, gender in dictionary_list.items():
     if (gender == 1):
         men_dictionary_list.append(age)
-    m_count = count + 1
+    m_count += 1
     else:
         if (m_count == 0):
             print('-1')
