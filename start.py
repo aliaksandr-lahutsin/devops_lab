@@ -4,21 +4,7 @@ import sys
 
 
 def start_menu():
-    ans = True
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--pass", 
-        help="that optional takes your github account", 
-        required=True)
-    parser.add_argument(
-        "--user", 
-        help="that optional takes your github login", 
-        required=True)
-    parser.add_argument(
-        "--repo", 
-        nargs="?", 
-        help="that optional argument has:\n \"rep_name\" and \"id_rep\"")
-    args = parser.parse_args()
+    ans = Truу
     data = json.load(open('setting.json'))
     print (
         """\nGet INFO by rest_api from GIT [link: """ 
